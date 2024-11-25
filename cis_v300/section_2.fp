@@ -778,12 +778,6 @@ pipeline "cis_v300_2_4" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "2.4 Ensure Guest Users Are Reviewed on a Regular Basis"
@@ -797,7 +791,6 @@ pipeline "cis_v300_2_4" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -1893,7 +1886,7 @@ pipeline "cis_v300_2_26" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_tenant_with_more_than_five_iam_global_administrator
+    pipeline   = azure_compliance.pipeline.detect_and_correct_tenants_with_more_than_five_iam_global_administrator
 
     args = {
       database           = param.database

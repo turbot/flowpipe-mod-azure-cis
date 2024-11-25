@@ -242,7 +242,7 @@ pipeline "cis_v300_8_4" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_unattached_disk_not_encrypted_with_cmk
+    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_unattached_disks_not_encrypted_with_cmk
 
     args = {
       database           = param.database
