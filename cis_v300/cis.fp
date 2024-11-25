@@ -15,7 +15,7 @@ locals {
 pipeline "cis_v300" {
   title         = "CIS v3.0.0"
   description   = "The CIS Microsoft Azure Foundations Security Benchmark provides prescriptive guidance for establishing a secure baseline configuration for Microsoft Azure."
-  #documentation = file("./cis_v300/docs/cis_overview.md")
+  documentation = file("./cis_v300/docs/cis_overview.md")
 
   tags = {
     folder      = "CIS v3.0.0"
