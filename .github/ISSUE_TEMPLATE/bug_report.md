@@ -16,8 +16,8 @@ Example: v0.3.0
 **Flowpipe mod versions (`flowpipe mod list`)**
 Example:
 ```
-aws_compliance
-├── github.com/turbot/flowpipe-mod-aws@v0.4.0
+azure_compliance
+├── github.com/turbot/flowpipe-mod-azure@v1.0.0
 └── github.com/turbot/flowpipe-mod-detect-correct@v0.1.1
 ```
 
