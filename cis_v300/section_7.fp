@@ -283,7 +283,7 @@ pipeline "cis_v300_7_5" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_network_securitys_group_flow_log_with_retention_period_less_than_90_days
+    pipeline   = azure_compliance.pipeline.detect_and_correct_network_security_groups_flow_log_with_retention_period_less_than_90_days
 
     args = {
       database           = param.database
