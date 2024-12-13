@@ -785,7 +785,7 @@ pipeline "cis_v300_2_4" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_tenant_with_guest_users
+    pipeline   = azure_compliance.pipeline.detect_and_correct_tenants_with_guest_users
 
     args = {
       database           = param.database

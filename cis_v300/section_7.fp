@@ -320,12 +320,6 @@ pipeline "cis_v300_7_6" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "7.6 Ensure that Network Watcher is 'Enabled' for Azure Regions that are in use"
@@ -339,7 +333,6 @@ pipeline "cis_v300_7_6" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
