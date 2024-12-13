@@ -104,7 +104,7 @@ pipeline "cis_v300_9_1" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_https
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_https_enabled
 
     args = {
       database           = param.database

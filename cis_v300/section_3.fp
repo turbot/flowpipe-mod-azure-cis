@@ -1586,7 +1586,7 @@ pipeline "cis_v300_3_3_5" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_keyvault_vaults_non_recoverable
+    pipeline   = azure_compliance.pipeline.detect_and_correct_keyvault_vaults_with_purge_protection_disabled
 
     args = {
       database           = param.database

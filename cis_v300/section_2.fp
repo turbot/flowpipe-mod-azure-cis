@@ -1288,7 +1288,7 @@ pipeline "cis_v300_2_14" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_users_allowed_to_register_application
+    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_authorization_policies_allowing_to_register_application
 
     args = {
       database           = param.database
@@ -1536,7 +1536,7 @@ pipeline "cis_v300_2_19" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_users_allowed_to_create_security_group
+    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_authorization_policies_allowing_to_create_security_group
 
     args = {
       database           = param.database
