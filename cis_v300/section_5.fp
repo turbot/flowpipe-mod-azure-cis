@@ -158,7 +158,7 @@ pipeline "cis_v300_5_1_2" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_sql_databases_when_publicly_accessible
+    pipeline   = azure_compliance.pipeline.detect_and_correct_sql_databases_with_public_access_enabled
 
     args = {
       database           = param.database
@@ -1093,7 +1093,7 @@ pipeline "cis_v300_5_4_2" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_cosmosdb_accounts_not_using_private_link
+    pipeline   = azure_compliance.pipeline.detect_and_correct_cosmosdb_accounts_without_private_link
 
     args = {
       database           = param.database

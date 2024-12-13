@@ -141,7 +141,7 @@ pipeline "cis_v300_8_2" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_vms_not_utilizing_managed_disk
+    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_vms_without_managed_disk
 
     args = {
       database           = param.database
@@ -178,12 +178,6 @@ pipeline "cis_v300_8_3" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "8.3 Ensure that 'OS and Data' disks are encrypted with Customer Managed Key (CMK)"
@@ -191,13 +185,12 @@ pipeline "cis_v300_8_3" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_os_and_data_disks_not_encrypted_with_cmk
+    pipeline   = azure_compliance.pipeline.detect_and_correct_compute_attached_disks_not_encrypted_with_cmk
 
     args = {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -229,12 +222,6 @@ pipeline "cis_v300_8_4" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "8.4 Ensure that 'Unattached disks' are encrypted with 'Customer Managed Key' (CMK)"
@@ -248,7 +235,6 @@ pipeline "cis_v300_8_4" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -280,12 +266,6 @@ pipeline "cis_v300_8_5" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "8.5 Ensure that 'Disk Network Access' is NOT set to 'Enable public access from all networks'"
@@ -299,7 +279,6 @@ pipeline "cis_v300_8_5" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }

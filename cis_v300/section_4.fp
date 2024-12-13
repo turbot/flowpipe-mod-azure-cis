@@ -357,7 +357,7 @@ pipeline "cis_v300_4_6" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_storage_accounts_when_publicly_accessible
+    pipeline   = azure_compliance.pipeline.detect_and_correct_storage_accounts_with_public_access_enabled
 
     args = {
       database           = param.database
@@ -504,7 +504,7 @@ pipeline "cis_v300_4_9" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_storage_accounts_not_using_private_link
+    pipeline   = azure_compliance.pipeline.detect_and_correct_storage_accounts_without_private_link
 
     args = {
       database           = param.database
@@ -591,13 +591,7 @@ pipeline "cis_v300_4_11" {
     description = local.description_notifier_level
     default     = var.notification_level
   }
-
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
+  
   step "message" "header" {
     notifier = param.notifier
     text     = "4.11 Ensure Storage for Critical Data are Encrypted with Customer Managed Keys"
@@ -611,7 +605,6 @@ pipeline "cis_v300_4_11" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }

@@ -104,7 +104,7 @@ pipeline "cis_v300_9_1" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_not_using_https
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_https
 
     args = {
       database           = param.database
@@ -257,7 +257,7 @@ pipeline "cis_v300_9_4" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_not_using_latest_tls_version
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_latest_tls_version
 
     args = {
       database           = param.database
@@ -410,7 +410,7 @@ pipeline "cis_v300_9_7" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_not_using_latest_php_version
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_latest_php_version
 
     args = {
       database           = param.database
@@ -461,7 +461,7 @@ pipeline "cis_v300_9_8" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_not_using_latest_python_version
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_latest_python_version
 
     args = {
       database           = param.database
@@ -563,7 +563,7 @@ pipeline "cis_v300_9_10" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_not_using_latest_http_version
+    pipeline   = azure_compliance.pipeline.detect_and_correct_appservice_web_apps_without_latest_http_version
 
     args = {
       database           = param.database

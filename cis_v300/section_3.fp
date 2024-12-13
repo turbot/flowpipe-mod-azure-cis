@@ -1397,12 +1397,6 @@ pipeline "cis_v300_3_3_1" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "3.3.1 Ensure that the Expiration Date is set for all Keys in RBAC Key Vaults"
@@ -1416,7 +1410,6 @@ pipeline "cis_v300_3_3_1" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -1448,12 +1441,6 @@ pipeline "cis_v300_3_3_2" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "3.3.2 Ensure that the Expiration Date is set for all Keys in Non-RBAC Key Vaults"
@@ -1467,7 +1454,6 @@ pipeline "cis_v300_3_3_2" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -1499,12 +1485,6 @@ pipeline "cis_v300_3_3_3" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "3.3.3 Ensure that the Expiration Date is set for all Secrets in RBAC Key Vaults"
@@ -1518,7 +1498,6 @@ pipeline "cis_v300_3_3_3" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -1550,12 +1529,6 @@ pipeline "cis_v300_3_3_4" {
     default     = var.notification_level
   }
 
-  param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "3.3.4 Ensure that the Expiration Date is set for all Secrets in Non-RBAC Key Vaults"
@@ -1569,7 +1542,6 @@ pipeline "cis_v300_3_3_4" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-      approvers          = param.approvers
     }
   }
 }
@@ -1710,7 +1682,7 @@ pipeline "cis_v300_3_3_7" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_keyvault_vaults_not_using_private_link
+    pipeline   = azure_compliance.pipeline.detect_and_correct_keyvault_vaults_without_private_link
 
     args = {
       database           = param.database

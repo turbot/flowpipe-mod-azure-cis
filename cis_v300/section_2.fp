@@ -1739,7 +1739,7 @@ pipeline "cis_v300_2_23" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_custom_subscriptions_owner_roles_existing
+    pipeline   = azure_compliance.pipeline.detect_and_correct_iam_subscriptions_with_custom_owner_roles
 
     args = {
       database           = param.database
