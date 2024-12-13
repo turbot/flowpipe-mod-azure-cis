@@ -97,7 +97,7 @@ pipeline "cis_v300_8_1" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_subscriptions_with_no_network_bastion_host
+    pipeline   = azure_compliance.pipeline.detect_and_correct_subscriptions_without_network_bastion_host
 
     args = {
       database           = param.database

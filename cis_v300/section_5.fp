@@ -902,7 +902,7 @@ pipeline "cis_v300_5_3_2" {
 
   step "pipeline" "run_pipeline" {
     depends_on = [step.message.header]
-    pipeline   = azure_compliance.pipeline.detect_and_correct_mysql_flexible_servers_with_no_min_tls_1_2
+    pipeline   = azure_compliance.pipeline.detect_and_correct_mysql_flexible_servers_without_min_tls_1_2
 
     args = {
       database           = param.database
