@@ -1088,7 +1088,7 @@ pipeline "cis_v300_3_1_11" {
 pipeline "cis_v300_3_1_12" {
   title         = "3.1.12 Ensure That 'All users with the following roles' is set to 'Owner'"
   description   = "Enable security alert emails to subscription owners."
-  documentation = file("./cis_v300/docs/cis_v300_3_1_11.md")
+  documentation = file("./cis_v300/docs/cis_v300_3_1_12.md")
 
   tags = {
     folder = "CIS v3.0.0/3 Security/3.1 Microsoft Defender for Cloud"
