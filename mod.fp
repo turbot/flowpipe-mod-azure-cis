@@ -4,13 +4,12 @@ mod "azure_cis" {
   color         = "#0089D6"
   documentation = file("./README.md")
   database      = var.database
-  icon          = "/images/mods/turbot/azure-compliance.svg"
+  icon          = "/images/mods/turbot/azure_cis.svg"
   categories    = ["azure", "compliance", "public cloud", "standard", "terminal"]
 
   opengraph {
     title       = "Azure CIS Mod for Flowpipe"
     description = "Run pipelines to detect and correct Azure resources that are non-compliant with CIS benchmarks."
-    image       = "/images/mods/turbot/azure-compliance-social-graphic.png"
   }
 
   require {
