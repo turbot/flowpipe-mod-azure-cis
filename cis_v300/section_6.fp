@@ -201,12 +201,6 @@ pipeline "cis_v300_6_1_3" {
     default     = var.notification_level
   }
 
-	param "approvers" {
-    type        = list(notifier)
-    description = local.description_approvers
-    default     = var.approvers
-  }
-
   step "message" "header" {
     notifier = param.notifier
     text     = "6.1.3 Ensure the storage account containing the container with activity logs is encrypted with Customer Managed Key"
@@ -220,7 +214,6 @@ pipeline "cis_v300_6_1_3" {
       database           = param.database
       notifier           = param.notifier
       notification_level = param.notification_level
-			approvers          = param.approvers
     }
   }
 }

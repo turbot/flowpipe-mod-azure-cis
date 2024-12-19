@@ -77,7 +77,7 @@ flowpipe pipeline list | grep "cis"
 Then run your chosen pipeline:
 
 ```sh
-flowpipe pipeline run cis_v300
+flowpipe pipeline run azure_cis.pipeline.cis_v300
 ```
 
 By default the above approach would find the relevant resources and then send a message to your configured [notifier](https://flowpipe.io/docs/reference/config-files/notifier).
@@ -96,14 +96,14 @@ vi flowpipe.fpvars
 Alternatively, you can pass variables on the command line:
 
 ```sh
-flowpipe pipeline run cis_v300 --var notifier=notifier.default
+flowpipe pipeline run azure_cis.pipeline.cis_v300 --var notifier=notifier.default
 ```
 
 Or through environment variables:
 
 ```sh
 export FP_VAR_notifier="notifier.default"
-flowpipe pipeline run cis_v300
+flowpipe pipeline run azure_cis.pipeline.cis_v300
 ```
 
 For more information, please see [Passing Input Variables](https://flowpipe.io/docs/build/mod-variables#passing-input-variables)
