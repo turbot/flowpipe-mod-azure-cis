@@ -1,7 +1,7 @@
 mod "azure_cis" {
   title         = "Azure CIS"
   description   = "Run pipelines to detect and correct Azure resources that are non-compliant with CIS benchmarks."
-  color         = "#FF9900"
+  color         = "#0089D6"
   documentation = file("./README.md")
   database      = var.database
   icon          = "/images/mods/turbot/azure-compliance.svg"
